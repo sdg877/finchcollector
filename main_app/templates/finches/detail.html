@@ -37,6 +37,54 @@
     </tbody>
   </table>
 </div>
+<hr>
+<div class="row">
+  <div class="col s6">
+    <h3>{{ finches.name }}'s Toys</h3>
+    {% if finches.toys.count %}
+      {% for toy in finches.toys.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'remove_toy' finches.id toy.id %}" method=POST>
+              {% csrf_token %}
+              <button type="submit" class="btn red">Remove</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Toys</h5>
+    {% endif %}
+  </div>
+  <!-- Available toys will come after this line -->
+  <div class="col s6">
+    <h3>Available Toys</h3>
+    {% if toys.count %}
+      {% for toy in toys.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_toy' finches.id toy.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{finches.name}} Already Has All Toys Available</h5>
+    {% endif %}
+  </div>
+</div>
 </div>
 <script>
   const dateEl = document.getElementById('id_date');
