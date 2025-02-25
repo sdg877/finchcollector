@@ -1,10 +1,11 @@
+Finch Collector
 A Django application that allows users to collect and manage information about different finches.
 
 Description
 This project was completed as part of a coding bootcamp to practice building full-stack web applications using Django. The app provides CRUD functionality for managing a collection of finches, including adding, updating, and deleting finch entries.
 
 Features
-Add new finch species with details
+Add new finch species with details (name, species, description, date observed)
 View a list of all collected finches
 Update existing finch information
 Delete finch entries
@@ -21,3 +22,7 @@ Usage
 Log in to manage your finch collection.
 Use the form to add new finch species.
 Edit or delete finch entries as needed.
+
+License
+This project is licensed under the MIT License.
+
